@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styleEx.css">
+    <title>Exercício 03</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">03 - Calculadora</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2>Informe o primeiro valor</h2>
+                <input id ="txtN1"class="form-control" type="number" placeholder="Digite o primeiro valor aqui">
+                <h2>Informe o segundo valor:</h2>
+                <input id ="txtN2"class="form-control" type="number" value="txtVenda" placeholder="Digite o segundo valor aqui">
+                <tr>
+                    <td><button type="button" class="btn-calc btn btn-info" onClick="Somar()">+</button></td>
+                    <td><button type="button" class="btn-calc btn btn-info" onClick="Subtrair()">-</button></td>
+                    <td><button type="button" class="btn-calc btn btn-info" onClick="Multiplicar()">*</button></td>
+                    <td><button type="button" class="btn-calc btn btn-info" onClick="Dividir()">/</button></td>
+                </tr>
+            </div>
+            <div id="res"></div>
+        </div>
+    </div>
+    <footer>
+        Desenvolvido por Valmir - 2023
+    </footer>
+    <script>
+        function Somar(){
+            var n1 = parseFloat(document.getElementById('txtN1').value)
+            var n2 = parseFloat(document.getElementById('txtN2').value)
+            var resultado = n1+n2
+            res.innerHTML = `O resultado da soma é ${resultado}.`
+        }
+
+        function Subtrair(){
+            var n1 = parseFloat(document.getElementById('txtN1').value)
+            var n2 = parseFloat(document.getElementById('txtN2').value)
+            var resultado = n1-n2
+            res.innerHTML = `O resultado da subtração é ${resultado}.`
+        }
+
+        function Multiplicar(){
+            var n1 = parseFloat(document.getElementById('txtN1').value)
+            var n2 = parseFloat(document.getElementById('txtN2').value)
+            var resultado = n1*n2
+            res.innerHTML = `O resultado da multiplicação é ${resultado}.`
+        }
+
+        function Dividir(){
+            var n1 = parseFloat(document.getElementById('txtN1').value)
+            var n2 = parseFloat(document.getElementById('txtN2').value)
+            var resultado = n1/n2
+            res.innerHTML = `O resultado da divisão é ${resultado}.`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styleEx.css">
+    <title>Exercício 05</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">05 - Contador</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2 style="font-size: 18px; font-weight:medium;">Informe um número para iniciar a contagem:</h2>
+                <input id="txtNum" type="number" class="form-control" value="txtNum" placeholder="Digite o número aqui">
+                <button type="button" class="btn btn-info" onClick="Contar()">Iniciar contagem</button>
+                <div class="resultado">
+                    <select name="tab" id="tab" size="10" class="form-control">
+                        <option>Digite um número para iniciar a contagem.</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Desenvolvido por Valmir - 2023
+    </footer>
+    <script>
+        function Contar(){
+            var fim = Number(document.getElementById('txtNum').value)
+            var tab = document.getElementById('tab')
+            var cont = 1
+
+            if (fim < 0 || fim==''){
+                window.alert(`Insira um número inteiro válido para iniciar a contagem!`)
+            }
+            else{
+                tab.innerHTML = ''
+                while(cont<=fim){
+                    var item = document.createElement('option')
+                    item.text = cont
+                    tab.appendChild(item)
+                    cont++
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

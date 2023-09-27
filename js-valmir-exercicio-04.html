@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styleEx.css">
+    <title>Exercício 04</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">04 - Locadora de Veículos</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <div class="content">
+                <h2>Selecione o modelo do veículo:</h2>
+                <label class="radio-inline form-check-label">
+                    <input id="radio"class="form-check-input" type="radio" name="checkModelo" value="0" onClick="Hatch()" checked> Hatch Compacto
+                </label>
+                <label class="radio-inline form-check-label">
+                    <input id="radio" class="form-check-input" type="radio" name="checkModelo" value="1" onClick="Seda()"> Sedã Grande
+                </label>
+                <label class="radio-inline form-check-label">
+                    <input id="radio" class="form-check-input" type="radio" name="checkModelo" value="2" onClick="Esportivo()"> Esportivo
+                </label>
+                <iframe id="gif" src="https://giphy.com/embed/ME2yoQe9DZkQLwWOZz" width="380" height="112" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                <h2>Informe a quantidade de dias para locação:</h2>
+                <input id="txtDias" type="number" class="form-control" value="txtDias" placeholder="Digite aqui a quantidade de dias">
+                <button type="button" class="btn btn-info" onClick="Calcular()">Verificar</button>
+            </div>
+            <div id="res"></div>
+        </div>
+    </div>
+    <footer>
+        Desenvolvido por Valmir - 2023
+    </footer>
+    <script>
+        function Calcular(){
+            var vlHatch = 80
+            var vlSeda = 100
+            var vlEsportivo = 300
+            var qtdDias = Number(document.getElementById('txtDias').value)
+            var opcao = Number(document.querySelector('input[name="checkModelo"]:checked').value)
+
+            if (qtdDias <0 || qtdDias >30 || qtdDias == ""){
+                window.alert(`Por favor, insira um número válido de dias entre 01 e 30`)
+                
+            } else{
+                switch(opcao){
+                    case 0:
+                        resultado = vlHatch*qtdDias
+                        res.innerHTML = `O valor total do aluguel será de <strong>R$${resultado.toFixed(2)}</strong> para <strong>${qtdDias}</strong> dias com um veículo <strong>Hatch Compacto</strong>.`
+                        break
+                    case 1:
+                        resultado = vlSeda*qtdDias
+                        res.innerHTML = `O valor total do aluguel será de <strong>R$${resultado.toFixed(2)}</strong> para <strong>${qtdDias}</strong> dias com um veículo <strong>Sedã Grande</strong>.`
+                        break
+                    case 2:
+                        resultado = vlEsportivo*qtdDias
+                        res.innerHTML = `O valor total do alguel será de <strong>R$${resultado.toFixed(2)}</strong> para <strong>${qtdDias}</strong> dias com um veículo <strong>Esportivo</strong>.`
+                        break
+                    default:
+                        res.innerHTML = `Preencha as informações corretamente e tente novamente!`
+                        break
+                }
+            }
+        }
+
+        function Hatch(){
+            var gif = document.getElementById('gif')
+            gif.src='https://giphy.com/embed/ME2yoQe9DZkQLwWOZz'
+        }
+
+        function Seda(){
+            var gif = document.getElementById('gif')
+            gif.src='https://giphy.com/embed/jOVviIZZxgPGHvlH66'
+            }
+        
+        function Esportivo(){
+            var gif = document.getElementById('gif')
+            gif.src='https://giphy.com/embed/VeN2BvNCgSKUReznVz'
+        }
+    </script>
+</body>
+</html>
